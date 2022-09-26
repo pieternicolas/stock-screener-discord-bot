@@ -1,4 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
+import { CommandInteraction } from 'discord.js';
+import { getInteractionData } from 'src/helpers/interactionHelper';
 import { Command } from '../interfaces/Command';
 
 export const testGanteng: Command = {
@@ -11,13 +13,14 @@ export const testGanteng: Command = {
         .setDescription('message test?')
         .setRequired(true)
     ),
-  run: async (interaction) => {
+  run: async (interaction: CommandInteraction) => {
     await interaction.deferReply();
     const { user } = interaction;
-    const text = interaction.options.getString('message', true);
+    const text = interaction.commandName === 'ganteng';
+    const message = getInteractionData(interaction.options.data, 'message');
 
-    console.log(text, user);
-
-    interaction.editReply('ganteng lu bang');
+    interaction.editReply(
+      `From user: ${user.username}. Message: ${message?.value}`
+    );
   },
 };
