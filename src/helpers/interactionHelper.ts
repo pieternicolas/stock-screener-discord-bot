@@ -1,4 +1,4 @@
-import { CommandInteraction, CommandInteractionOption } from 'discord.js';
+import { CommandInteractionOption } from 'discord.js';
 
 export const getInteractionData = (
   interactionData: readonly CommandInteractionOption[],
