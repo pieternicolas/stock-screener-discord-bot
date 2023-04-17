@@ -2,7 +2,7 @@ import { Client } from 'discord.js';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
 
-import { CommandList } from 'src/commands';
+import { CommandList } from '../commands';
 
 export const onReady = async (client: Client) => {
   const rest = new REST({ version: '9' }).setToken(

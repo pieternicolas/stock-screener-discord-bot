@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction } from 'discord.js';
-import { getInteractionData } from 'src/helpers/interactionHelper';
+import { getInteractionData } from '../helpers/interactionHelper';
 import { Command } from '../interfaces/Command';
 
 export const testGanteng: Command = {
