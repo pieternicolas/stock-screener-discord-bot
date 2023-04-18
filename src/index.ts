@@ -1,7 +1,11 @@
 import { Client } from 'discord.js';
+import dotenv from 'dotenv';
+
 import { CommandList } from './commands';
 import { IntentOptions } from './config/IntentOptions';
 import { onReady } from './events/onReady';
+
+dotenv.config();
 
 (async () => {
   const client = new Client({ intents: IntentOptions });
