@@ -5,7 +5,13 @@ import { CommandList } from './commands';
 import { IntentOptions } from './config/IntentOptions';
 import { onReady } from './events/onReady';
 
+import keepAlive from './server';
+
 dotenv.config();
+
+if (process.env.ENVIRONMENT === 'production') {
+  keepAlive();
+}
 
 (async () => {
   const client = new Client({ intents: IntentOptions });
@@ -14,14 +20,6 @@ dotenv.config();
     console.log(`Logged in as ${client?.user?.tag}!`);
     await onReady(client);
   });
-
-  // client.on('messageCreate', async (msg) => {
-  //   console.log(msg.content);
-
-  //   if (msg.content === 'ping') {
-  //     msg.reply('pong');
-  //   }
-  // });
 
   client.on('interactionCreate', async (interaction) => {
     if (interaction.isCommand()) {
