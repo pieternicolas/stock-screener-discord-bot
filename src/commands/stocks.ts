@@ -91,9 +91,9 @@ export const checkStockPriceTemplate: Command = {
 
     interaction.editReply(
       `
-      **[${ticker?.value}](https://www.google.com/finance/quote/${
+      **[${ticker?.value}](https://stockbit.com/#/symbol/${
         ticker?.value
-      }:IDX) - ${longName} (${marketChangePercentage}%, ${marketChange})**
+      }/chartbit) - ${longName} (${marketChangePercentage}%, ${marketChange})**
 Buy Price : ${formatter.format(buyPrice)}
 Current Price : ${formatter.format(price)}
 
